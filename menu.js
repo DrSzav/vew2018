@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import createReactClass from 'create-react-class';
 import { Text,ScrollView,View, Navigator,AppRegistry ,TouchableOpacity,StyleSheet } from 'react-native';
-
+import Meteor from 'react-native-meteor';
 //import Triangle from 'react-native-triangle';
 
 export default class VewsMenu extends Component {
@@ -73,7 +73,7 @@ collectButton(){
             Record. Record a new Vew at your current location, only downloadable at that position.</Text>
           </View>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => Meteor.logout()}>
+      <TouchableOpacity style={styles.button} onPress={this.deleteAccount.bind(this)}>
           <Text style={styles.buttonText}>Delete Account</Text>
         </TouchableOpacity>
       </View>
@@ -81,6 +81,16 @@ collectButton(){
     );
   }
 
+  deleteAccount(){
+    Meteor.call('deleteAccount',this.deleteAccountCallback.bind(this));
+    
+  }
+
+  deleteAccountCallback(results){
+    Meteor.logout()
+
+    console.log(results)
+  }
 
 }
 

@@ -3,6 +3,8 @@ package com.vew2;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.marianhello.bgloc.react.BackgroundGeolocationPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import cl.json.RNSharePackage;
 import com.github.yamill.orientation.OrientationPackage;
@@ -30,6 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativePushNotificationPackage(),
+            new BackgroundGeolocationPackage(),
             new ReactVideoPackage(),
             new RNSharePackage(),
             new OrientationPackage(),

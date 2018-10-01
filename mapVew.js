@@ -81,10 +81,10 @@ export default class VewsMap extends Component {
   componentWillReceiveProps = (newProps) =>{
     this.pointsRecieved();
     if(newProps.mapCenter){
-      this.setState({zoom:15});
+      //this.setState({zoom:15});
       this.setState({userTrackingMode: Mapbox.UserTrackingModes.None})
     //  this._map.easeTo(newProps.mapCenter,false);
-    this._map.flyTo([newProps.mapCenter.longitude,newProps.mapCenter.latitude],500);
+    this._map.flyTo([newProps.mapCenter.longitude,newProps.mapCenter.latitude],50);
     }
     if(newProps.userFollow){
 

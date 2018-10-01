@@ -13,7 +13,7 @@ import CapturePlayer from './capturePlayer.js';
 import Gallery from './gallery.js';
 import React, { Component } from 'react';
 import Orientation from 'react-native-orientation';
-
+import PushNotification from 'react-native-push-notification';
 
 import {
     Text,
@@ -25,7 +25,8 @@ import {
     StatusBar,
     TouchableOpacity,
     Linking,
-    AsyncStorage
+    AsyncStorage,
+    Platform
 } from 'react-native';
 
 
@@ -43,8 +44,10 @@ const thumbnailFolder = RNFS.DocumentDirectoryPath + '/vewCollection/thumbnails'
 RNFS.mkdir(videoFolder);
 RNFS.mkdir(thumbnailFolder);
 
+
 //Meteor.connect('http://104.236.183.62:80/websocket',{autoConnect:true,autoReconnect:true});
 Meteor.connect('https://getvew.com:443/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:1 });
+//Meteor.connect('http://10.50.10.83:3000/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:100 });
 //Meteor.connect('http://192.168.100.5:3000/websocket',{autoConnect:true,autoReconnect:true});
 //http://pick
 @connectMeteor
@@ -54,6 +57,7 @@ class App extends Component {
     super();
     this.state = {appReady:true,pointsList:[],seenIDs:[],deleteds:{}};
     this.data = {};
+    this.deviceToken = '';
 
   }
   componentDidMount(){
@@ -63,6 +67,45 @@ class App extends Component {
     this.getCurrentPosition();
     this.cpInterval = this.setInterval(this.getCurrentPosition.bind(this),5000);
     Linking.addEventListener('url', this.handleDeepLink);
+
+
+    if(Platform.OS === 'ios'){
+      PushNotification.configure({
+        onRegister: function(token) {
+            console.log( 'TOKEN:', token );
+            registerForPush(token);
+        },
+      });
+    }
+    else{
+     // console.log('projNumber: ',androidSettings.project_info.project_number)
+      PushNotification.configure({
+     //   senderID: androidSettings.project_info.project_number,
+        onRegister: function(token) {
+            console.log( 'TOKEN:', token );
+            registerForPush(token);
+        },
+      });
+    }
+  }
+
+  registerForPush(){
+    try{
+        console.log(this.deviceToken);
+        if(this.deviceToken != ''){
+          console.log(this.deviceToken)
+            //let results = await AuthFetch.put(Strings.ServerURL + '/userupdate', {deviceToken:this.deviceToken});
+            Meteor.call('updateDeviceToken',{deviceToken:this.deviceToken},this.pushCallback.bind(this));
+            console.log('push registration:',results);
+        }
+    }
+    catch(error){
+        console.log(error)
+    }
+  }
+
+  pushCallback(results){
+    console.log('token regristration Callback');
   }
 
   userSignedIn(){

@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
   //  height:Dimensions.get('window').height + 300,
   },
   input: {
-    height:35,
+    height:45,
     width: 250,
     fontSize: 20,
 

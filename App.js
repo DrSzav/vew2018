@@ -44,11 +44,10 @@ const thumbnailFolder = RNFS.DocumentDirectoryPath + '/vewCollection/thumbnails'
 RNFS.mkdir(videoFolder);
 RNFS.mkdir(thumbnailFolder);
 
-
 //Meteor.connect('http://104.236.183.62:80/websocket',{autoConnect:true,autoReconnect:true});
-Meteor.connect('https://getvew.com:443/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:1 });
-//Meteor.connect('http://10.50.10.83:3000/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:100 });
-//Meteor.connect('http://192.168.100.5:3000/websocket',{autoConnect:true,autoReconnect:true});
+//Meteor.connect('https://getvew.com:443/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:1 });
+Meteor.connect('http://10.50.10.102:3000/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:100 });
+//Meteor.connect('http://172.31.98.153:3000/websocket',{autoConnect:true,autoReconnect:true});
 //http://pick
 @connectMeteor
 class App extends Component {
@@ -61,19 +60,21 @@ class App extends Component {
 
   }
   componentDidMount(){
-    Orientation.lockToLandscapeRight();
     this.getThumbnails(); //Using thumbnails to track physical storage kinda ghetto but ok
     this.getDeleteds();
     this.getCurrentPosition();
     this.cpInterval = this.setInterval(this.getCurrentPosition.bind(this),5000);
+    Orientation.lockToLandscapeRight();
+
     Linking.addEventListener('url', this.handleDeepLink);
 
 
     if(Platform.OS === 'ios'){
       PushNotification.configure({
-        onRegister: function(token) {
+        onRegister: (token) => {
             console.log( 'TOKEN:', token );
-            registerForPush(token);
+            this.deviceToken = token;
+          //  this.registerForPush(token);
         },
       });
     }
@@ -81,22 +82,22 @@ class App extends Component {
      // console.log('projNumber: ',androidSettings.project_info.project_number)
       PushNotification.configure({
      //   senderID: androidSettings.project_info.project_number,
-        onRegister: function(token) {
+        onRegister: (token) => {
             console.log( 'TOKEN:', token );
-            registerForPush(token);
+            //this.registerForPush(token);
         },
       });
     }
   }
 
-  registerForPush(){
+  registerForPush(deviceToken){
     try{
-        console.log(this.deviceToken);
-        if(this.deviceToken != ''){
-          console.log(this.deviceToken)
+        console.log(deviceToken);
+        if(deviceToken != ''){
+          console.log(deviceToken)
             //let results = await AuthFetch.put(Strings.ServerURL + '/userupdate', {deviceToken:this.deviceToken});
-            Meteor.call('updateDeviceToken',{deviceToken:this.deviceToken},this.pushCallback.bind(this));
-            console.log('push registration:',results);
+            Meteor.call('updateDeviceToken',{deviceToken:deviceToken},this.pushCallback.bind(this));
+          //  console.log('push registration:',results);
         }
     }
     catch(error){
@@ -105,7 +106,7 @@ class App extends Component {
   }
 
   pushCallback(results){
-    console.log('token regristration Callback');
+    console.log('token regristration Callback',results);
   }
 
   userSignedIn(){
@@ -146,11 +147,14 @@ class App extends Component {
 
   getCurrentPosition(){
     console.log('get currentPosition');
+    if(this.data.user){
+      this.registerForPush(this.deviceToken);
     navigator.geolocation.getCurrentPosition(
       this.geoSuccess.bind(this),
       this.geoError.bind(this),
       {enableHighAccuracy: true, timeout: 2000, maximumAge: 2000}
     )
+  }
   }
 
   geoSuccess(position){
@@ -274,7 +278,7 @@ class App extends Component {
         return ( <View style={{flex:1}}><Navigator initialRoute = {{
                     index: 3
                 }} renderScene={ this.renderScene.bind(this) }
-           />{this.renderBlock()}
+           />{this.renderBlock()},
            <StatusBar hidden={true}/>
            </View>);
 
@@ -352,7 +356,7 @@ class App extends Component {
    }
    if(route.index == 8) {
     return (
-     <VewsMenu username={this.data.user.username} 
+     <VewsMenu username={this.data.user.username}
      email={this.data.user.emails[0]['address']}
      navigator={navigator}/>
    )

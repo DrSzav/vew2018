@@ -18,7 +18,7 @@
     "react-native-device-angles": "^0.1.1",
     "react-native-fs": "2.1.0-rc.1",
     "react-native-grid-view": "0.4.1",
-    "react-native-heading": "1.0.0",
+    "react-native-heading": "^1.1.0",
     "react-native-keyboard-aware-scroll-view": "0.7.2",
     "react-native-meteor": "1.4.0",
     "react-native-orientation": "3.1.3",

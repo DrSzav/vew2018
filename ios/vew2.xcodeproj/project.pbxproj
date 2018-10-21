@@ -46,8 +46,8 @@
 		7C81B382292A41C8BFF9D383 /* libRNDeviceAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD19DEF97DBD4CCBABCAE8CF /* libRNDeviceAngles.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		CFA7EA132151D3140077D314 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA7EA122151D3130077D314 /* Mapbox.framework */; };
-		CFA7EA152151D46E0077D314 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA7EA122151D3130077D314 /* Mapbox.framework */; };
+		CF3C93F7216D63CF0010F3FD /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA7EA122151D3130077D314 /* Mapbox.framework */; };
+		CF3C93F9216D65870010F3FD /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3C93F8216D65870010F3FD /* Mapbox.framework */; };
 		CFA7EA162151D46E0077D314 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFA7EA122151D3130077D314 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CFB88053215DE375001CEB81 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB88050215DE330001CEB81 /* libRCTPushNotification.a */; };
 /* End PBXBuildFile section */
@@ -460,6 +460,8 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B09EF95D1984456C82E3307A /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTOrientation.xcodeproj; path = "../node_modules/react-native-orientation/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; };
 		BD19DEF97DBD4CCBABCAE8CF /* libRNDeviceAngles.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceAngles.a; sourceTree = "<group>"; };
+		CF300F452170417500EC256D /* vew2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = vew2.entitlements; path = vew2/vew2.entitlements; sourceTree = "<group>"; };
+		CF3C93F8216D65870010F3FD /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../node_modules/@mapbox/react-native-mapbox-gl/ios/Mapbox.framework"; sourceTree = "<group>"; };
 		CFA7EA122151D3130077D314 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../node_modules/@mapbox/react-native-mapbox-gl/ios/Mapbox.framework"; sourceTree = "<group>"; };
 		CFB8804A215DE330001CEB81 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		D4100C35826F4849BE49FC48 /* RCTMGL.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTMGL.xcodeproj; path = "../node_modules/@mapbox/react-native-mapbox-gl/ios/RCTMGL.xcodeproj"; sourceTree = "<group>"; };
@@ -480,8 +482,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3C93F7216D63CF0010F3FD /* Mapbox.framework in Frameworks */,
 				CFB88053215DE375001CEB81 /* libRCTPushNotification.a in Frameworks */,
-				CFA7EA132151D3140077D314 /* Mapbox.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -491,11 +493,11 @@
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				CF3C93F9216D65870010F3FD /* Mapbox.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				CFA7EA152151D46E0077D314 /* Mapbox.framework in Frameworks */,
 				3F88CAFE0F274DA998977690 /* libRCTMGL.a in Frameworks */,
 				3099661D35A24FE780EF2E4B /* libRNCamera.a in Frameworks */,
 				7C81B382292A41C8BFF9D383 /* libRNDeviceAngles.a in Frameworks */,
@@ -615,6 +617,7 @@
 		13B07FAE1A68108700A75B9A /* vew2 */ = {
 			isa = PBXGroup;
 			children = (
+				CF300F452170417500EC256D /* vew2.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -679,6 +682,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CF3C93F8216D65870010F3FD /* Mapbox.framework */,
 				CFB8804A215DE330001CEB81 /* RCTPushNotification.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -867,8 +871,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				CFA7EA142151D34B0077D314 /* Mapbox */,
 				CFA7EA172151D46E0077D314 /* Embed Frameworks */,
+				CFA7EA142151D34B0077D314 /* Mapbox */,
 			);
 			buildRules = (
 			);
@@ -930,6 +934,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = UQV2CRRU4L;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1436,7 +1445,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1464,7 +1473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"";
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1598,6 +1607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vew2/vew2.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = UQV2CRRU4L;
@@ -1632,6 +1642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vew2/vew2.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UQV2CRRU4L;
 				ENABLE_BITCODE = NO;

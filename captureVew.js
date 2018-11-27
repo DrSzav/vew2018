@@ -43,7 +43,7 @@ export default class CaptureVew extends Component {
     this.borderWidth = 0;
     this.genColorKey();
     this.vewsLoaded = {};
-    this.closestPointKey = -1;
+    this.closestPointKey = 0;
   }
 
   genColorKey(){
@@ -100,24 +100,29 @@ export default class CaptureVew extends Component {
             a.distance - b.distance
           })
           this.setState({nearby:pointsList});
+          let vewID = false;
+         if(pointsList && this.closestPointKey || this.closestPointKey == 0){
+            vewID = pointsList[this.closestPointKey].videoID;
+         }
+         if(vewID){
 
-
-        if(closestPointDistance < 100){
-          this.preloadVideo(pointsList[this.closestPointKey].videoID);
-        }
-        if(closestPointDistance < 30){
-          this.setState({loading:true});
-
-          if(this.vewsLoaded[pointsList[this.closestPointKey].videoID] ) {
-          this.setState({readyPlay:true});
-          this.checkVewLoaded();
+          if(closestPointDistance < 100){
+            this.preloadVideo(vewID);
           }
-          this.checkForFiles();
-        }
-        else{
-          this.setState({readyPlay:false,loading:false});
-        //  this.setState({loading:false});
-      //    this.setState({loading:false});
+          if(closestPointDistance < 30){
+            this.setState({loading:true});
+
+            if(this.vewsLoaded[vewID] ) {
+            this.setState({readyPlay:true});
+            this.checkVewLoaded();
+            }
+            this.checkForFiles();
+          }
+          else{
+            this.setState({readyPlay:false,loading:false});
+          //  this.setState({loading:false});
+        //    this.setState({loading:false});
+          }
         }
       }
     }
@@ -624,7 +629,7 @@ takeThumbnail(){
   this.camera.takePictureAsync(
     {
       quality:.1,
-      forceUpOrientation: false, 
+      forceUpOrientation: false,
       fixOrientation: false,
       exif:true
     }

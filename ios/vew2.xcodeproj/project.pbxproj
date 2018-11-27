@@ -1632,7 +1632,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thirstysprout.vew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thirstysprout.vews;
 				PRODUCT_NAME = vew2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1666,7 +1666,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thirstysprout.vew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thirstysprout.vews;
 				PRODUCT_NAME = vew2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

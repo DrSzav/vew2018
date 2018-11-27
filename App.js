@@ -45,8 +45,8 @@ RNFS.mkdir(videoFolder);
 RNFS.mkdir(thumbnailFolder);
 
 //Meteor.connect('http://104.236.183.62:80/websocket',{autoConnect:true,autoReconnect:true});
-//Meteor.connect('https://getvew.com:443/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:1 });
-Meteor.connect('http://10.50.10.102:3000/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:100 });
+Meteor.connect('https://getvew.com:443/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:1 });
+//Meteor.connect('http://192.168.0.31:3000/websocket',{autoConnect:true,autoReconnect:true, reconnectInterval:100 });
 //Meteor.connect('http://172.31.98.153:3000/websocket',{autoConnect:true,autoReconnect:true});
 //http://pick
 @connectMeteor
@@ -356,9 +356,13 @@ class App extends Component {
    }
    if(route.index == 8) {
     return (
-     <VewsMenu username={this.data.user.username}
+      <View style={{flex:1}}>
+
+        <VewsMenu username={this.data.user.username}
      email={this.data.user.emails[0]['address']}
      navigator={navigator}/>
+       <TouchableOpacity style={styles.backButtonHolder} onPressIn={this.goBack.bind(this,navigator)}><Text style={styles.backButton} >[back]</Text></TouchableOpacity>
+     </View>
    )
   }
 
@@ -390,6 +394,7 @@ const styles = StyleSheet.create({
       alignItems:'center',
       flexDirection:'column',
       justifyContent:'center',
+      zIndex:100000000
   },
 
   backButton: {

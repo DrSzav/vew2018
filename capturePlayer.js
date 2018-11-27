@@ -62,7 +62,7 @@ getComments(){
   shareVew(){
     let shareOptions = {
       title: "Download Vews",
-      message: "download vews",
+      message: "Check out this Vew",
       url: "http://getvew.com/?vid=" + this.props.vewID,
       subject: "go there and watch" //  for email
     };

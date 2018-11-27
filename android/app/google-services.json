@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "137845172859",
+    "firebase_url": "https://vewsandroid.firebaseio.com",
+    "project_id": "vewsandroid",
+    "storage_bucket": "vewsandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137845172859:android:00dd852073ec4538",
+        "android_client_info": {
+          "package_name": "com.vew2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137845172859-8u6nf9gkm5l09m8tkvivnpbsbv5ckght.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPpYCtra7NOFMjaSfE_qn4itcSK1h40dc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
